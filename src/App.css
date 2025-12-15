@@ -1,0 +1,368 @@
+#root {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #0f172a;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+h1 {
+  font-size: 1.9rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: #0f172a;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, #eff6ff, #e0f2fe);
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 210px;
+}
+
+.control-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.control-group input[type='date'],
+.control-group select {
+  border-radius: 0.5rem;
+  border: 1px solid #cbd5f5;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.9rem;
+  background-color: #ffffff;
+  color: #0f172a;
+  outline: none;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.control-group input[type='date']::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 1;
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+}
+
+.control-group input[type='date']:focus,
+.control-group select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.25);
+}
+
+.control-group input[type='date']:hover {
+  border-color: #93c5fd;
+}
+
+.legend {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-left: auto;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.color-picker {
+  display: none;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #0f172a;
+  background-color: #e5e7eb;
+}
+
+.badge-clickable {
+  border: none;
+  cursor: pointer;
+}
+
+.badge-dia {
+  background-color: #bfdbfe;
+  color: #1d4ed8;
+}
+
+.badge-noche {
+  background-color: #c7d2fe;
+  color: #4338ca;
+}
+
+.badge-descanso {
+  background-color: #dcfce7;
+  color: #15803d;
+}
+
+.calendar {
+  border-radius: 0.75rem;
+  background-color: #ffffff;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+  padding: 1.25rem 1.5rem 1.5rem;
+}
+
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.calendar-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.calendar-month-title {
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s ease;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.calendar-month-title:hover {
+  color: #2563eb;
+  background-color: #eff6ff;
+}
+
+.month-picker-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.month-select,
+.year-select {
+  border-radius: 0.5rem;
+  border: 1px solid #cbd5f5;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.9rem;
+  background-color: #ffffff;
+  color: #0f172a;
+  outline: none;
+  cursor: pointer;
+}
+
+.month-select:focus,
+.year-select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.25);
+}
+
+.month-picker-close {
+  border-radius: 999px;
+  border: none;
+  padding: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background-color: #eff6ff;
+  color: #1d4ed8;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+}
+
+.month-picker-close:hover {
+  background-color: #dbeafe;
+}
+
+.calendar-header button {
+  border: none;
+  background-color: #eff6ff;
+  color: #1d4ed8;
+  border-radius: 999px;
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.05s ease;
+}
+
+.calendar-header button:hover {
+  background-color: #dbeafe;
+}
+
+.calendar-header button:active {
+  transform: scale(0.97);
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.35rem;
+  margin-top: 0.5rem;
+}
+
+.calendar-weekday {
+  text-align: center;
+  padding: 0.3rem 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #6b7280;
+}
+
+.calendar-day {
+  min-height: 70px;
+  border-radius: 0.75rem;
+  background-color: #f9fafb;
+  padding: 0.35rem 0.45rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: inset 0 0 0 1px #e5e7eb;
+  position: relative;
+}
+
+.calendar-day-empty {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.calendar-day-today {
+  box-shadow: 0 0 0 2px #2563eb;
+}
+
+.day-today-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.7rem;
+  color: rgba(250, 204, 21, 0.35); /* amarillo suave y translúcido */
+  pointer-events: none; /* para que no bloquee clicks dentro del día */
+}
+
+.day-number {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.day-shift-label {
+  margin-top: 0.25rem;
+  align-self: flex-start;
+  font-size: 0.72rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.day-dia {
+  background: radial-gradient(circle at top left, #eff6ff, #dbeafe);
+  box-shadow: inset 0 0 0 1px #bfdbfe;
+}
+
+.day-dia .day-shift-label {
+  background-color: #bfdbfe;
+  color: #1d4ed8;
+}
+
+.day-noche {
+  background: radial-gradient(circle at top left, #eef2ff, #c7d2fe);
+  box-shadow: inset 0 0 0 1px #a5b4fc;
+}
+
+.day-noche .day-shift-label {
+  background-color: #c7d2fe;
+  color: #3730a3;
+}
+
+.day-descanso {
+  background: radial-gradient(circle at top left, #ecfdf3, #bbf7d0);
+  box-shadow: inset 0 0 0 1px #86efac;
+}
+
+.day-descanso .day-shift-label {
+  background-color: #bbf7d0;
+  color: #166534;
+}
+
+.notes {
+  font-size: 0.85rem;
+  color: #4b5563;
+  padding: 0 0.25rem;
+  line-height: 1.4;
+}
+
+.notes p {
+  margin: 0.1rem 0;
+}
+
+@media (max-width: 768px) {
+  #root {
+    padding: 1.5rem 0.5rem 2.5rem;
+  }
+
+  .calendar {
+    padding: 1rem;
+  }
+
+  .calendar-day {
+    min-height: 64px;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .legend {
+    margin-left: 0;
+  }
+}
+
+/* Ocultar etiquetas de turno solo en smartphones (no en tablets) */
+@media (max-width: 600px) {
+  .day-shift-label {
+    display: none;
+  }
+}
